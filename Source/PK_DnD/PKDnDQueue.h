@@ -8,7 +8,7 @@
 #include "PKDnDQueue.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS(BlueprintType, Blueprintable)
 class PK_DND_API UPKDnDQueue : public UObject, public IPKDnDQueueInterface
@@ -21,15 +21,12 @@ class PK_DND_API UPKDnDQueue : public UObject, public IPKDnDQueueInterface
 	// End IPKDnDQueueInterface
 
 public:
+	UFUNCTION(BlueprintCallable)
+	void PrintQueueArray();
+
 	/*
 	 * Variables
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<int32> Array;
-
-	UFUNCTION(BlueprintCallable)
-	void PrintArray();
-
-
-
+	TArray<int32> QueueArray;
 };

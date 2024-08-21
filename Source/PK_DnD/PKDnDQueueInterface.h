@@ -14,7 +14,7 @@ class UPKDnDQueueInterface : public UInterface
 };
 
 /**
- * 
+ *
  */
 class PK_DND_API IPKDnDQueueInterface
 {
