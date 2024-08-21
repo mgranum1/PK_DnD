@@ -8,7 +8,7 @@
 void UPKDnDQueue::Enqueue_Implementation(int32 Data)
 {
 	Array.Emplace(Data);
-	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, FString::Printf(TEXT("Added to Queue: %d"), Data));
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, FString::Printf(TEXT("Queued: %d"), Data));
 }
 
 int32 UPKDnDQueue::Dequeue_Implementation()
@@ -16,8 +16,9 @@ int32 UPKDnDQueue::Dequeue_Implementation()
 	int32 DequeueData = 0;
 	if(!Array.IsEmpty())
 	{
-		DequeueData = Array.Pop();
-		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, FString::Printf(TEXT("Poped from Queue: %d"), DequeueData));
+		DequeueData = Array[0];
+		Array.RemoveAt(0);
+		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, FString::Printf(TEXT("Dequeued: %d"), DequeueData));
 
 	}
 	return DequeueData;
