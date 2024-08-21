@@ -14,7 +14,7 @@ class PK_DND_API UPKDnDStack : public UObject, public IPKDnDStackInterface
 	GENERATED_BODY()
 
 	// Start IPKDnDStackInterface
-	virtual void Push_Implementation(FString& Data) override;
+	virtual void Push_Implementation(const FString& Data) override;
 	virtual FString Pop_Implementation() override;
 	// End IPKDnDStackInterface
 

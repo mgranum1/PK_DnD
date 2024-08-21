@@ -1,10 +1,12 @@
 #include "PKDnDStack.h"
 #include "Engine/Engine.h"
 
-void UPKDnDStack::Push_Implementation(FString& Data)
+void UPKDnDStack::Push_Implementation(const FString& Data)
 {
 	StackArray.Emplace(Data);
-	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, FString(("Pushed: " + Data)));
+	//GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, FString(("Pushed: " + Data)));
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, FString::Printf(TEXT("Pushed: %s"), *Data));
+	
 }
 
 FString UPKDnDStack::Pop_Implementation()
@@ -14,7 +16,7 @@ FString UPKDnDStack::Pop_Implementation()
 	{
 		PopData = StackArray.Last();
 		StackArray.Pop();
-		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, FString("Poped: " + PopData));
+		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, FString::Printf(TEXT("Poped: %s"), *PopData));
 	}
 	return PopData;
 }
