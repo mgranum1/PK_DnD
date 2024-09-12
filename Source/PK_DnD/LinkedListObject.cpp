@@ -32,6 +32,24 @@ void ULinkedListObject::Append(FString Data)
 
 void ULinkedListObject::Prepend(FString Data)
 {
+
+	mData = Data;
+
+	UMLGNodeObject* NewNode = NewObject<UMLGNodeObject>(GetTransientPackage());
+	NewNode->Node(mData);
+
+	if (IsValid(Head))
+	{
+
+
+	}
+
+	else	
+	{
+
+
+	}
+
 }
 
 void ULinkedListObject::DeleteWithValue(FString Data)
@@ -43,6 +61,14 @@ void ULinkedListObject::PrintList()
 
 	if (IsValid(Head))
 	{
+		
+		CurrentNode = Head;
+		while (IsValid(CurrentNode->NextNode))
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("%d"), mData));
+		}
+		
+		CurrentNode = CurrentNode->NextNode;
 
 	}
 
